@@ -1,0 +1,651 @@
+:root {
+  --brand: #0b6e4f;
+  --brand-deep: #074c37;
+  --ink: #1b2420;
+  --muted: #5b6a62;
+  --paper: #eef2f4;
+  --panel: #ffffff;
+  --sidebar: #f3f6f5;
+  --line: rgba(27, 36, 32, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+    "Noto Sans SC", sans-serif;
+  overflow: hidden;
+}
+
+.kb-brand-mark {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.kb-brand-title {
+  margin: 0 !important;
+  font-family: "Segoe UI Semibold", "Segoe UI", "PingFang SC", "Microsoft YaHei",
+    sans-serif !important;
+  letter-spacing: 0.04em;
+  color: var(--brand-deep) !important;
+}
+
+.kb-brand-sub {
+  color: var(--muted) !important;
+  font-size: 12px;
+}
+
+.kb-section-label {
+  display: block;
+  margin: 14px 0 8px;
+  font-size: 12px;
+}
+
+.kb-doc-ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.kb-doc-item {
+  border-block-end: 1px solid var(--line);
+  padding: 10px 0;
+}
+
+.kb-doc-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.kb-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+/* ===== 全屏问答壳 ===== */
+.app-shell {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+
+.app-shell-loading {
+  background: var(--paper);
+}
+
+.chat-sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 20px 14px 12px;
+  background: var(--sidebar);
+  border-right: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.chat-brand {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.chat-new-btn {
+  margin-bottom: 4px;
+}
+
+.chat-thread-list {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+}
+
+.chat-thread-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  border: 1px solid transparent;
+  background: transparent;
+  border-radius: 10px;
+  padding: 10px 8px;
+  text-align: left;
+  cursor: pointer;
+  color: var(--ink);
+  transition: background 140ms ease, border-color 140ms ease;
+}
+
+.chat-thread-item:hover {
+  background: rgba(11, 110, 79, 0.06);
+}
+
+.chat-thread-item.is-active {
+  background: rgba(11, 110, 79, 0.12);
+  border-color: rgba(11, 110, 79, 0.2);
+}
+
+.chat-thread-main {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  min-width: 0;
+  flex: 1;
+}
+
+.chat-thread-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 2px;
+}
+
+.chat-thread-title {
+  font-size: 13px;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.chat-thread-meta {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.chat-thread-del {
+  opacity: 0;
+  color: var(--muted);
+  padding: 4px;
+  border-radius: 6px;
+}
+
+.chat-thread-item:hover .chat-thread-del,
+.chat-thread-item.is-active .chat-thread-del {
+  opacity: 1;
+}
+
+.chat-thread-del:hover {
+  color: #c0392b;
+  background: rgba(192, 57, 43, 0.08);
+}
+
+.chat-sidebar-foot {
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+  margin-top: 8px;
+}
+
+.chat-admin-link {
+  color: var(--brand);
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.chat-admin-link:hover {
+  text-decoration: underline;
+}
+
+.kb-chat {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-width: 0;
+  background: var(--panel);
+  overflow: hidden;
+}
+
+.kb-chat-header {
+  padding: 18px 28px 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.kb-chat-title {
+  margin: 0 0 4px !important;
+}
+
+.kb-chat-body {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 24px 28px;
+}
+
+.kb-chat-empty {
+  max-width: 560px;
+  margin: 12vh auto 0;
+}
+
+.kb-chat-hero {
+  margin: 0 0 10px !important;
+  font-family: "Segoe UI Semibold", "Segoe UI", "PingFang SC", "Microsoft YaHei",
+    sans-serif !important;
+  color: var(--brand-deep) !important;
+}
+
+.chat-quick {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.kb-example {
+  text-align: left;
+  border: 1px solid var(--line);
+  background: #f8faf9;
+  border-radius: 10px;
+  padding: 10px 12px;
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color 160ms ease, background 160ms ease;
+}
+
+.kb-example:hover:not(:disabled) {
+  border-color: rgba(11, 110, 79, 0.35);
+  background: rgba(11, 110, 79, 0.06);
+}
+
+.kb-example:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.kb-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.kb-bubble {
+  max-width: min(760px, 92%);
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  white-space: pre-wrap;
+  word-break: break-word;
+  animation: bubble-in 280ms ease both;
+}
+
+@keyframes bubble-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.kb-bubble-user {
+  align-self: flex-end;
+  background: rgba(11, 110, 79, 0.1);
+}
+
+.kb-bubble-assistant {
+  align-self: flex-start;
+  background: #f7f9f8;
+}
+
+.kb-bubble-role {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 12px;
+  color: var(--muted) !important;
+}
+
+.kb-bubble-content {
+  line-height: 1.65;
+  font-size: 15px;
+}
+
+.kb-typing {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 2px;
+}
+
+.kb-chat-input {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  align-items: end;
+  padding: 14px 28px 18px;
+  border-top: 1px solid var(--line);
+  background: #fafcfb;
+}
+
+/* ===== 管理页全屏 ===== */
+.admin-shell {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--paper);
+}
+
+.admin-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.92);
+  flex-shrink: 0;
+}
+
+.admin-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.admin-workspace {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  overflow: hidden;
+}
+
+.admin-doc-pane {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  border-right: 1px solid var(--line);
+  background: var(--sidebar);
+  overflow: hidden;
+}
+
+.admin-pane-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px 8px;
+  flex-shrink: 0;
+}
+
+.admin-doc-list {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 0 10px 14px;
+}
+
+.admin-doc-btn {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 4px;
+  border: 1px solid transparent;
+  background: transparent;
+  border-radius: 10px;
+  padding: 6px 6px 6px 10px;
+  color: var(--ink);
+  margin-bottom: 6px;
+  transition: background 140ms ease, border-color 140ms ease;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.admin-doc-btn:hover {
+  background: rgba(11, 110, 79, 0.06);
+}
+
+.admin-doc-btn.is-active {
+  background: rgba(11, 110, 79, 0.12);
+  border-color: rgba(11, 110, 79, 0.22);
+}
+
+.admin-doc-select {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  border: none;
+  background: transparent;
+  padding: 4px 0;
+  text-align: left;
+  cursor: pointer;
+  color: inherit;
+}
+
+.admin-doc-btn .kb-doc-row {
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.admin-doc-name {
+  display: block;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.admin-doc-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  max-width: 100%;
+}
+
+.admin-doc-del {
+  flex-shrink: 0;
+  opacity: 0.35;
+  margin-top: 2px;
+}
+
+.admin-doc-btn:hover .admin-doc-del,
+.admin-doc-btn.is-active .admin-doc-del {
+  opacity: 1;
+}
+
+.admin-preview-pane {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
+  background: var(--panel);
+  padding: 16px 20px 0;
+}
+
+.admin-preview-head {
+  flex: 0 0 auto;
+  margin-bottom: 4px;
+}
+
+.admin-preview-title {
+  margin: 0 !important;
+}
+
+.admin-preview-meta {
+  margin: 4px 0 0 !important;
+}
+
+.admin-tab-bar {
+  display: flex;
+  gap: 8px;
+  flex: 0 0 auto;
+  margin: 8px 0 12px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0;
+}
+
+.admin-tab-btn {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+
+.admin-tab-btn:hover {
+  color: var(--brand);
+}
+
+.admin-tab-btn.is-active {
+  color: var(--brand-deep);
+  border-bottom-color: var(--brand);
+}
+
+.admin-scroll-area {
+  flex: 1 1 0;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0 8px 28px 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.admin-error-box {
+  margin-bottom: 12px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(192, 57, 43, 0.25);
+  background: rgba(192, 57, 43, 0.06);
+}
+
+.admin-preview-text,
+.admin-chunk-body {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", monospace;
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--ink);
+}
+
+.admin-preview-text {
+  padding: 14px 16px;
+  background: #f7f9f8;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.admin-chunk-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-bottom: 8px;
+}
+
+.admin-chunk-card {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fafcfb;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.admin-chunk-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+  background: #f3f6f5;
+}
+
+.admin-chunk-body {
+  padding: 12px 14px;
+  /* 单条切片不再单独限高卡死，由外层列表整体滚动 */
+  max-height: none;
+  overflow: visible;
+}
+
+.admin-center {
+  min-height: 240px;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.admin-panel {
+  max-width: 880px;
+  width: 100%;
+  margin: 28px auto;
+  padding: 28px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+
+.admin-actions {
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: auto;
+}
+
+.admin-doc-ul {
+  margin-top: 8px;
+}
+
+@media (max-width: 800px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+    grid-template-rows: 42vh 1fr;
+  }
+
+  .chat-sidebar {
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .admin-workspace {
+    grid-template-columns: 1fr;
+    grid-template-rows: 36vh 1fr;
+  }
+
+  .admin-doc-pane {
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+  }
+}

@@ -1,0 +1,20 @@
+data/raw/*
+!data/raw/.gitkeep
+data/chroma/
+data/db/
+data/logs/*
+!data/logs/.gitkeep
+data/*.log
+data/api*.log
+.env
+web/.env.local
+web/.next/
+web/node_modules/
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+
+# Embedding 权重大（约 90MB+），默认不入库；保留说明文件
+models/**
+!models/README.md
